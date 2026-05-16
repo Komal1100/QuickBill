@@ -1,6 +1,6 @@
 // src/app/dashboard/inventory/page.tsx
 "use client";
-
+import { API_BASE_URL } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { useAuthStore } from "@/store/useAuthStore";
 import {
@@ -28,8 +28,7 @@ export default function InventoryPage() {
     // Fetch real data from backend
     const fetchInventory = async () => {
         setLoading(true);
-        try {
-            const res = await fetch("http://localhost:8000/api/products/", {
+        try {const res = await fetch(`${API_BASE_URL}/api/products/`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             const json = await res.json();
