@@ -106,7 +106,7 @@ export default function InventoryPage() {
 
                     try {
                         const res = await fetch(
-                            `http://localhost:8000/api/products/${product.id}`,
+                            `${API_BASE_URL}/api/products/${product.id}`,
                             {
                                 method: "DELETE",
                                 headers: {

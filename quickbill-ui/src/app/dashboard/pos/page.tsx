@@ -282,7 +282,8 @@ export default function POSTerminal() {
     setCheckoutMessage(null);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/products/`,
+      const response = await fetch(
+        `${API_BASE_URL}/api/orders/`,
         {
           method: "POST",
           headers: {
