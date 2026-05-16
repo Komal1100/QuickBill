@@ -13,10 +13,11 @@ app = FastAPI(title="QuickBill POS API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000" , "https://quickbill-eight.vercel.app/"],
+    allow_origins=["http://localhost:3000" , "https://quickbill-eight.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+   
 )
 
 class LoginRequest(BaseModel):
