@@ -7,6 +7,7 @@ import { useAuthStore } from "@/store/useAuthStore";
 import { motion } from "framer-motion";
 import { Command, LayoutDashboard, ShoppingCart, Package, FileText, LogOut } from "lucide-react";
 import Link from "next/link";
+import AiInsightsPanel from "./components/AiInsightsPanel";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -47,6 +48,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <span className="text-xl font-bold tracking-tight">QuickBill</span>
         </div>
 
+        
+
         <div className="flex-1 px-4 py-6 space-y-2">
           {navItems.map((item) => {
             const isActive = pathname === item.path;
@@ -70,6 +73,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             );
           })}
         </div>
+
 
         <div className="p-4 border-t border-white/5">
           <button onClick={handleLogout} className="flex items-center gap-3 px-4 py-3 w-full rounded-xl text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-all">

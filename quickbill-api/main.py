@@ -8,7 +8,8 @@ from datetime import timedelta
 from routers import products, orders , insights
 from datetime import datetime
 import random
-
+from dotenv import load_dotenv
+load_dotenv(dotenv_path="./env")
 app = FastAPI(title="QuickBill POS API")
 
 app.add_middleware(

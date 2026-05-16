@@ -7,6 +7,7 @@ import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from "rec
 import { Sparkles, TrendingUp, DollarSign, Package, CreditCard } from "lucide-react";
 import { useAuthStore } from "@/store/useAuthStore";
 import { API_BASE_URL } from "@/lib/api";
+import AiInsightsPanel from "./components/AiInsightsPanel";
 
 // Dummy Data for the Chart
 const salesData = [
@@ -132,6 +133,10 @@ export default function DashboardPage() {
               Generate Detailed Report &rarr;
             </button>
           </div>
+
+          <div className="lg:col-span-3">
+          <AiInsightsPanel />
+        </div>
         </motion.div>
       </div>
     </div>
