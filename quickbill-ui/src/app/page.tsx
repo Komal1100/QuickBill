@@ -9,6 +9,7 @@ import * as z from "zod";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Sparkles, Command, ArrowRight, Loader2 } from "lucide-react";
 import { useAuthStore } from "@/store/useAuthStore";
+import { API_BASE_URL } from "@/lib/api";
 
 // Zod Validation Schema
 const loginSchema = z.object({
@@ -34,7 +35,7 @@ export default function LoginPage() {
     setIsLoading(true);
     setErrorMsg("");
     try {
-      const res = await fetch("http://localhost:8000/api/auth/login", {
+      const res = await fetch(`${API_BASE_URL}/api/products/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

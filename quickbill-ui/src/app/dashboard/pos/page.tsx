@@ -218,6 +218,7 @@ import {
 import { usePOSStore } from "@/store/usePOSStore";
 import { useAuthStore } from "@/store/useAuthStore";
 import InvoiceDocument from "../orders/components/InvoiceDocument";
+import { API_BASE_URL } from "@/lib/api";
 
 export default function POSTerminal() {
   const { token } = useAuthStore();
@@ -260,7 +261,7 @@ export default function POSTerminal() {
 
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://localhost:8000/api/products/", {
+      const res = await fetch(`${API_BASE_URL}/api/products/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -281,8 +282,7 @@ export default function POSTerminal() {
     setCheckoutMessage(null);
 
     try {
-      const response = await fetch(
-        "http://localhost:8000/api/orders/",
+      const response = await fetch(`${API_BASE_URL}/api/products/`,
         {
           method: "POST",
           headers: {

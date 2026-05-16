@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { Sparkles, TrendingUp, DollarSign, Package, CreditCard } from "lucide-react";
 import { useAuthStore } from "@/store/useAuthStore";
+import { API_BASE_URL } from "@/lib/api";
 
 // Dummy Data for the Chart
 const salesData = [
@@ -22,7 +23,7 @@ export default function DashboardPage() {
     // Fetch AI Summary from our FastAPI backend
     const fetchInsights = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/insights/summary", {
+        const res = await fetch(`${API_BASE_URL}/api/insights/summary`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = await res.json();
