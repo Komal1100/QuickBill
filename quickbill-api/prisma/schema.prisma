@@ -1,0 +1,48 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-python"
+}
+
+model User {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  email    String @unique
+  password String
+}
+
+model Product {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  sku         String   @unique
+  category    String
+  price       Float
+  costPrice   Float
+  stockQty    Int
+  lowStock    Int      @default(5)
+  description String?
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+}
+
+model Order {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  items         OrderItem[]
+  totalAmount   Float
+  discount      Float       @default(0)
+  tax           Float
+  grandTotal    Float
+  customerName  String?
+  customerPhone String?
+  status        String      @default("COMPLETED") // COMPLETED, CANCELLED
+  createdAt     DateTime    @default(now())
+}
+
+type OrderItem {
+  productId   String @db.ObjectId
+  name        String
+  quantity    Int
+  priceAtTime Float
+}
